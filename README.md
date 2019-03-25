@@ -38,36 +38,18 @@ custom:
 Functions (and associated tests) can be created using the command
 
 ```
-sls create function -f functionName --handler handler
+sls create function -t mappingType -n functionName
 ```
  
 e.g.
 
 ```
-sls create function -f myFunction --handler functions/myFunction/index.handler
+sls create function -t query -n listUsers
 ```
 
-creates a new function `myFunction` into `serverless.yml` with a code template for
-the handler in `functions/myFunction/index.js` and a Javascript function `module.exports.handler` 
-as the entrypoint for the Lambda function. A test template is also created into `test/myFunction.js`. Optionally tests can be created to specific folder using `--path` or `-p` switch, e.g. 
-
-```
-sls create function -f myFunction --handler functions/myFunction/index.handler --path tests
-```
-
-To create tests next to handler use `--path {function}`, in following example test file `myFunction.test.js` is created to `functions/myFunction/` directory.
-
-```
-sls create function -f myFunction --handler functions/myFunction/index.handler --path {function}
-```
-
-### Creating tests
-
-Tests can also be added to existing handlers using
-
-```
-sls create test -f functionName
-```
+creates a new resolver `listUsers` into `resolvers.yml` with a code template for
+the handler in `query/listUsers.js` and a Javascript function 
+as the entrypoint for the Lambda function. A test template is also created into `___tests___/query-listUsers.js`. 
 
 ### Running tests
 
@@ -80,4 +62,4 @@ sls invoke test [--stage stage] [--region region] [-f function]
 If no function names are passed to "invoke test", all tests related to handler functions are run.
 
 ## License
-https://github.com/SC5/serverless-jest-plugin/blob/master/LICENSE
+https://github.com/artoliukkonen/serverless-appsync-jest-plugin/blob/master/LICENSE
