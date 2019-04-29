@@ -1,7 +1,10 @@
 # Serverless AppSync Jest Plugin
 
-A Serverless Plugin for the [Serverless Framework](http://www.serverless.com) which
-adds support for test-driven development using [jest](https://facebook.github.io/jest/)
+*WORK IN PROGRESS* (this plugin might not work as expected & documentation is unfinished)
+
+A Serverless Plugin for the [Serverless Framework](http://www.serverless.com) and 
+[serverless-appsync-plugin](https://github.com/sid88i/serverless-appsync-plugin) which
+adds support for test-driven development using [jest](https://facebook.github.io/jest/).
 
 ## Introduction
 
@@ -15,13 +18,14 @@ This plugins does the following:
 In your service root, run:
 
 ```bash
-npm install --save-dev serverless-appsync-jest-plugin
+npm install --save-dev serverless-appsync-plugin serverless-appsync-jest-plugin
 ```
 
 Add the plugin to `serverless.yml`:
 
 ```yml
 plugins:
+  - serverless-appsync-plugin
   - serverless-appsync-jest-plugin
 custom:
   jest:
@@ -29,6 +33,8 @@ custom:
     # See details here: https://facebook.github.io/jest/docs/configuration.html
     # For instance, uncomment next line to enable code coverage
     # collectCoverage: true
+  appSync:
+    # AppSync plugin config
 ```
 
 ## Usage
