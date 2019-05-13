@@ -5,7 +5,7 @@ const lambdaWrapper = require('lambda-wrapper');
 
 const createResolver = require('./lib/create-resolver');
 const createTest = require('./lib/create-test');
-// const runTests = require('./lib/run-tests');
+const runTests = require('./lib/run-tests');
 
 class ServerlessJestPlugin {
   constructor(serverless, options) {
@@ -35,16 +35,12 @@ class ServerlessJestPlugin {
         },
       },
       invoke: {
-        usage: 'Invoke jest tests for service / function',
+        usage: 'Invoke jest tests for the service',
         commands: {
           test: {
             usage: 'Invoke test(s)',
             lifecycleEvents: ['test'],
             options: {
-              function: {
-                usage: 'Name of the function',
-                shortcut: 'f',
-              },
               reporter: {
                 usage: 'Jest reporter to use',
                 shortcut: 'R',
@@ -63,8 +59,8 @@ class ServerlessJestPlugin {
     };
 
     this.hooks = {
-      // 'invoke:test:test': () =>
-      //   BbPromise.bind(this).then(() => runTests(this.serverless, this.options, this.config)),
+      'invoke:test:test': () => BbPromise.bind(this)
+        .then(() => runTests(this.serverless, this.options, this.config)),
       'create:function:create': () => BbPromise.bind(this)
         .then(() => createResolver(this.serverless, this.options))
         .then(() => createTest(this.serverless, this.options)),
