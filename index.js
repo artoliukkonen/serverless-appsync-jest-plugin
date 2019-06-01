@@ -23,12 +23,12 @@ class ServerlessJestPlugin {
               name: {
                 usage: 'Name of the resolver',
                 shortcut: 'n',
-                required: true,
+                required: false,
               },
               type: {
                 usage: 'Must be one "query", "mutation" or "function"',
                 shortcut: 't',
-                required: true,
+                required: false,
               },
             },
           },
@@ -63,7 +63,7 @@ class ServerlessJestPlugin {
         .then(() => runTests(this.serverless, this.options, this.config)),
       'create:appsync:create': () => BbPromise.bind(this)
         .then(() => createResolver(this.serverless, this.options))
-        .then(() => createTest(this.serverless, this.options)),
+        .then(config => createTest(this.serverless, this.options, config)),
     };
   }
 }
