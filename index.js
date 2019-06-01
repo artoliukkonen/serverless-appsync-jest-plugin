@@ -16,7 +16,7 @@ class ServerlessJestPlugin {
     this.commands = {
       create: {
         commands: {
-          function: {
+          appsync: {
             usage: 'Create a AppSync resolver into the service',
             lifecycleEvents: ['create'],
             options: {
@@ -61,7 +61,7 @@ class ServerlessJestPlugin {
     this.hooks = {
       'invoke:test:test': () => BbPromise.bind(this)
         .then(() => runTests(this.serverless, this.options, this.config)),
-      'create:function:create': () => BbPromise.bind(this)
+      'create:appsync:create': () => BbPromise.bind(this)
         .then(() => createResolver(this.serverless, this.options))
         .then(() => createTest(this.serverless, this.options)),
     };
