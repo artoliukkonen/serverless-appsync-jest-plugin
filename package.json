@@ -1,6 +1,6 @@
 {
   "name": "serverless-appsync-jest-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serverless AppSync plugin for test driven development using Jest",
   "main": "index.js",
   "author": "Arto Liukkonen (https://nordcloud.com)",
