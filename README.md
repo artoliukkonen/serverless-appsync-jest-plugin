@@ -39,23 +39,13 @@ custom:
 
 ## Usage
 
-### Creating functions
+### Creating resolvers / functions
 
-Functions (and associated tests) can be created using the command
-
-```
-sls create function -t mappingType -n functionName
-```
- 
-e.g.
+Resolvers (and associated tests) can be created using the command
 
 ```
-sls create function -t query -n listUsers
+sls create appsync
 ```
-
-creates a new resolver `listUsers` into `resolvers.yml` with a code template for
-the handler in `query/listUsers.js` and a Javascript function 
-as the entrypoint for the Lambda function. A test template is also created into `___tests___/query-listUsers.js`. 
 
 ### Running tests
 
