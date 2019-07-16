@@ -15,7 +15,7 @@
   "dependencies": {
     "bluebird": "^3.5.4",
     "ejs": "^2.6.1",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.0.0",
     "inquirer": "^6.3.1",
     "jest": "^24.8.0",
     "lambda-wrapper": "^0.3.0",
